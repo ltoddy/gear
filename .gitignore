@@ -99,9 +99,4 @@ ENV/
 
 # mypy
 .mypy_cache/
-.idea/gear.iml
-.idea/inspectionProfiles/
-.idea/misc.xml
-.idea/modules.xml
-.idea/preferred-vcs.xml
-.idea/workspace.xml
+.idea/*
