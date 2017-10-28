@@ -21,6 +21,7 @@ settings.configure(
         },
     ),
     STATIC_URL='/static/',
+    ARTICLE_DIRECTORY=''
 )
 
 if __name__ == '__main__':
