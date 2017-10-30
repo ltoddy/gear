@@ -12,6 +12,7 @@ settings.configure(
     MIDDLEWARE_CLASSES=(),
     INSTALLED_APPS=(
         'django.contrib.staticfiles',
+        'builder',
     ),
     TEMPLATES=(
         {
@@ -21,7 +22,9 @@ settings.configure(
         },
     ),
     STATIC_URL='/static/',
-    ARTICLE_DIRECTORY=''
+    ARTICLE_DIRECTORY=os.path.join(BASE_DIR, 'articles'),
+    OUTPUT_DIRECTORY=os.path.join(BASE_DIR, 'essay'),
+    STATIC_ROOT=os.path.join(BASE_DIR, 'essay', 'static'),
 )
 
 if __name__ == '__main__':
