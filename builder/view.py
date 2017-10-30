@@ -25,14 +25,20 @@ def get_page_or_404(name) -> Template:
     return page
 
 
+def get_page_list() -> list:
+    return os.listdir(settings.SITE_PAGES_DIRECTORY)
+
+
 def page(request: HttpRequest, name='index') -> HttpResponse:
     '''
     Render the requested page if found.
     '''
     file_name = '{}.html'.format(name)
-    page = get_page_or_404(name)
+    page = get_page_or_404(file_name)
+    # print(get_page_list())
     context = {
         'title': name,
-        'page': page
+        'page': page,
+        'links': map(lambda s: s[:-5], get_page_list())
     }
     return render(request, "page.html", context)
