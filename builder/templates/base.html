@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}ltoddy's blog{% endblock %}</title>
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    {% endblock %}
+
+    {% block js %}
+        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.js' %}"></script>
+    {% endblock %}
+
+</head>
+<body>
+{% block navigation-bar %}
+    {% include 'navigation.html' %}
+{% endblock %}
+
+<div class="container">
+    <div style="height: 100px"></div>
+    <div class="col-sm-8">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="col-sm-3 col-sm-offset-1">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">文章列表</h3>
+            </div>
+            <div class="panel-body">
+                {% for link in links %}
+                    <p><a href="{% url 'page' link %}">{{ link }}</a></p>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
